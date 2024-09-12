@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import './ToolGrid.css'; // Import your CSS styles
 
-function App() {
+const tools = [
+  { name: "Merge PDF", imgSrc: "/images/mergepdf.png" }, // Replace with actual paths
+  { name: "Compress PDF", imgSrc: "/images/compress-icon.png" },
+  { name: "Split PDF", imgSrc: "/images/split-icon.png" }
+];
+
+const ToolGrid = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="tool-grid">
+      {tools.map((tool, index) => (
+        <div key={index} className="tool-box">
+          <img src={tool.imgSrc} alt={tool.name} className="tool-icon" />
+          <p>{tool.name}</p>
+          <form 
+      action="http://localhost:5000/mergePdf" 
+        method="POST" 
+        encType="multipart/form-data"
+      >
+        <label htmlFor="pdfFiles">Select PDF files to merge:</label>
+        <input 
+          type="file" 
+          name="file" 
+          id="file" 
+          multiple 
+          accept="application/pdf" 
+        />
+        <button type="submit">Merge PDFs</button>
+      </form>
+        </div>
+      ))}
+      
     </div>
   );
-}
+};
 
-export default App;
+export default ToolGrid;
+
+
