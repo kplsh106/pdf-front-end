@@ -15,7 +15,7 @@ const ToolGrid = () => {
           <img src={tool.imgSrc} alt={tool.name} className="tool-icon" />
           <p>{tool.name}</p>
           <form 
-      action="http://localhost:5000/mergePdf" 
+      action="https://43.204.227.55:3000/first/mergePdf" 
         method="POST" 
         encType="multipart/form-data"
       >
