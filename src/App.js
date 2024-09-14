@@ -15,7 +15,7 @@ const ToolGrid = () => {
           <img src={tool.imgSrc} alt={tool.name} className="tool-icon" />
           <p>{tool.name}</p>
           <form 
-      action="http://documentwallah.com:3000/first/mergePdf" 
+      action="http://documentwallah.com:3000/mergePdf" 
         method="POST" 
         encType="multipart/form-data"
       >
